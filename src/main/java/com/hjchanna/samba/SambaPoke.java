@@ -12,7 +12,7 @@ public class SambaPoke {
     public static void main(String[] args) throws Exception {
         //initializing
         System.out.println("----------------------------------------------------");
-        System.out.println("J A V A  S A M B A  P O K E");
+        System.out.println("S A M B A  P O K E");
         System.out.println("----------------------------------------------------");
 
         //reading arguments

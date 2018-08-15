@@ -3,7 +3,7 @@ Samba poke is used to test samba connections with Java. Samba-Poke can be used a
 
 ````
 # download samba-poke
-wget <url>
+wget https://github.com/hjchanna/samba-poke/raw/master/release/samba-poke.jar
 
 # run samba-poke
 java -jar samba-poke.jar smb://whatever/your/path/ <domain> <username> <password> 
@@ -27,7 +27,7 @@ mvn clean package
 Samba-poke will be released and destributed through github with in the same repository under **release** directory. The build command will be automatically build the release package in release directory. Samba-poke will be able to access in following link.
 
 ````
-<url>
+https://github.com/hjchanna/samba-poke/raw/master/release/samba-poke.jar``
 ````
 
 ##Authors
