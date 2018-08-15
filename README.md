@@ -1,4 +1,4 @@
-#Samba-Poke
+# Samba-Poke
 Samba poke is used to test samba connections with Java. Samba-Poke can be used as follows.
 
 ````
@@ -9,26 +9,26 @@ wget https://github.com/hjchanna/samba-poke/raw/master/release/samba-poke.jar
 java -jar samba-poke.jar smb://whatever/your/path/ <domain> <username> <password> 
 `````
 
-##Getting Started
+## Getting Started
 Samba-poke has developed using java and used maven as the dependency management and build tool. 
 
-###Prerequisites
+### Prerequisites
 * Apache Maven
 * JDK 1.8
 
-###Installing
+### Installing
 
 Use following commands to build samba-poke.
 
 ````
 mvn clean package
 ````
-##Release
+## Release
 Samba-poke will be released and destributed through github with in the same repository under **release** directory. The build command will be automatically build the release package in release directory. Samba-poke will be able to access in following link.
 
 ````
 https://github.com/hjchanna/samba-poke/raw/master/release/samba-poke.jar``
 ````
 
-##Authors
+## Authors
 * Channa Jayamuni 
