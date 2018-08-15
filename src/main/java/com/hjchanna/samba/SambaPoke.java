@@ -19,7 +19,7 @@ public class SambaPoke {
         //reading arguments
         if (args.length < 3) {
             System.out.println("Invalid number of arguments. Please input arguments in following format.");
-            System.out.println("samba-poke smb://whatever/your/path domain username password");
+            System.out.println("samba-poke smb://whatever/your/path <domain> <username> <password>");
 
             throw new Exception("Invalid number of arguments.");
         }
@@ -33,8 +33,9 @@ public class SambaPoke {
             Console console = System.console();
 
             if (console != null) {
-                System.out.println("Enter password for " + user + ": ");
+                System.out.print("Enter password for " + user + ": ");
                 password = new String(console.readPassword());
+                System.out.println("----------------------------------------------------");
             } else {
                 throw new Exception("Samba password not found.");
             }
@@ -64,14 +65,16 @@ public class SambaPoke {
                 }
             } else {
                 System.out.println("A FILE FOUND, PRINTING FILE CONTENT");
+                System.out.println("\tFile Name: " + smbFile.getName());
                 System.out.println("----------------------------------------------------");
 
                 SmbFileInputStream inputStream = new SmbFileInputStream(smbFile);
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
                 String line;
+                int i = 0;
                 while ((line = reader.readLine()) != null) {
-                    System.out.println(">> " + line);
+                    System.out.println((++i) + "| " + line);
                 }
             }
             System.out.println("----------------------------------------------------");

@@ -7,6 +7,8 @@ wget https://github.com/hjchanna/samba-poke/raw/master/release/samba-poke.jar
 
 # run samba-poke
 java -jar samba-poke.jar smb://whatever/your/path/ <domain> <username> <password> 
+- or - 
+java -jar samba-poke.jar smb://whatever/your/path/ <domain> <username> 
 `````
 
 ## Getting Started
