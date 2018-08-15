@@ -5,6 +5,7 @@ import jcifs.smb.SmbFile;
 import jcifs.smb.SmbFileInputStream;
 
 import java.io.BufferedReader;
+import java.io.Console;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -16,7 +17,7 @@ public class SambaPoke {
         System.out.println("----------------------------------------------------");
 
         //reading arguments
-        if (args.length < 2) {
+        if (args.length < 3) {
             System.out.println("Invalid number of arguments. Please input arguments in following format.");
             System.out.println("samba-poke smb://whatever/your/path domain username password");
 
@@ -25,13 +26,25 @@ public class SambaPoke {
         String path = args[0];
         String domain = args[1];
         String user = args[2];
-        String password = args[3];
+        String password;
+        if (args.length == 4) {
+            password = args[3];
+        } else {
+            Console console = System.console();
+
+            if (console != null) {
+                System.out.println("Enter password for " + user + ": ");
+                password = new String(console.readPassword());
+            } else {
+                throw new Exception("Samba password not found.");
+            }
+        }
 
         System.out.println("Initializing samba connection");
         System.out.println("\tPath     : " + path);
         System.out.println("\tDomain   : " + domain);
         System.out.println("\tUser     : " + user);
-        System.out.println("\tPassword : " + password);
+        System.out.println("\tPassword : " + password.replaceAll("[A-Za-z0-9\\W}]", "*"));
 
         //initializing samba connection
         NtlmPasswordAuthentication authentication = new NtlmPasswordAuthentication(domain, user, password);
@@ -58,7 +71,7 @@ public class SambaPoke {
 
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    System.out.println(line);
+                    System.out.println(">> " + line);
                 }
             }
             System.out.println("----------------------------------------------------");
