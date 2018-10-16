@@ -32,11 +32,20 @@ jobs:
 
     - run:
         name: Clean and Build Maven Project
-        command: sh ./build/build.sh
+        command: mvn clean install
 
     - run:
-        name: Release Project to GitHub
-        command: sh ./build/release.sh
+        name: Download and Install ghr
+        command: |
+          wget -c https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip
+          unzip ghr_v0.5.4_linux_amd64.zip
+          mv ghr bin
+
+    - run:
+        name: Release to Github
+        command: |
+          VERSION=build 1.1
+          ghr -t b1bd90f64d206380ef4bb74516f8664a487f720a -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./release/
 
     - save_cache:
         paths:

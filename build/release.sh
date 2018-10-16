@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-# create and push tags
-git tag build/$CIRCLE_BUILD_NUM
-git push --tags
+# download ghr
+wget -c https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip
+unzip ghr_v0.5.4_linux_amd64.zip
+mv ghr bin
+
 
 # release api
 curl -X POST \
