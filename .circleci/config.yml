@@ -39,13 +39,13 @@ jobs:
         command: |
           wget -c https://github.com/tcnksm/ghr/releases/download/v0.12.0/ghr_v0.12.0_linux_amd64.tar.gz
           tar -xvzf ghr_v0.12.0_linux_amd64.tar.gz
-          mv ghr_v0.12.0_linux_amd64/ghr /bin
+#          mv ghr_v0.12.0_linux_amd64/ghr /bin
 
     - run:
         name: Release to Github
         command: |
           VERSION=build 1.1
-          ghr -t b1bd90f64d206380ef4bb74516f8664a487f720a -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./release/
+          ghr_v0.12.0_linux_amd64/ghr -t b1bd90f64d206380ef4bb74516f8664a487f720a -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./release/
 
     - save_cache:
         paths:
