@@ -30,13 +30,13 @@ jobs:
         # fallback to using the latest cache if no exact match is found
         - v1-dependencies-
 
-    - run: sh ./build/build.sh
-#      name: Clean and Build Maven Project
-#      command: sh ./build/build.sh
-#
-#    - run:
-#      name: Release Project to GitHub
-#      command: sh ./build/release.sh
+    - run:
+        name: Clean and Build Maven Project
+        command: sh ./build/build.sh
+
+    - run:
+        name: Release Project to GitHub
+        command: sh ./build/release.sh
 
     - save_cache:
         paths:
