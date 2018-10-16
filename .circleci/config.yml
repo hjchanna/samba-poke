@@ -37,8 +37,8 @@ jobs:
     - run:
         name: Download and Install ghr
         command: |
-          wget -c https://github.com/tcnksm/ghr/releases/download/v0.5.4/ghr_v0.5.4_linux_amd64.zip
-          unzip ghr_v0.5.4_linux_amd64.zip
+          wget -c https://github.com/tcnksm/ghr/releases/download/v0.12.0/ghr_v0.12.0_linux_amd64.tar.gz
+          tar -xvzf ghr_v0.12.0_linux_amd64.tar.gz
           mv ghr bin
 
     - run:
