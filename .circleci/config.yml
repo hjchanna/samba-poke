@@ -43,8 +43,7 @@ jobs:
     - run:
         name: Release to Github
         command: |
-          echo 'export VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version | grep -v "\[")' >> $BASH_ENV
-          source $BASH_ENV
+          export VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version | grep -v "\[")
           ./ghr_v0.12.0_linux_amd64/ghr -t ${GIT_PERSONAL_TOKEN} -u hjchanna -r samba-poke -c ${CIRCLE_SHA1} -delete ${VERSION} ./release/
 
     - save_cache:
