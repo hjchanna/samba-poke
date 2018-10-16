@@ -39,17 +39,14 @@ jobs:
         command: |
           wget -c https://github.com/tcnksm/ghr/releases/download/v0.12.0/ghr_v0.12.0_linux_amd64.tar.gz
           tar -xvzf ghr_v0.12.0_linux_amd64.tar.gz
-#          mv ghr_v0.12.0_linux_amd64/ghr /bin
 
     - run:
         name: Release to Github
-        command: ./ghr_v0.12.0_linux_amd64/ghr -t ${GIT_PERSONAL_TOKEN} -u hjchanna -r samba-poke -c ${CIRCLE_SHA1} -delete 1.2 ./release/
-#          VERSION=build 1.1
-#          ./ghr_v0.12.0_linux_amd64/ghr -t 17c62294c2d8f5dac710b4508c8fbb7e3de35671 -u hjchanna -r samba-poke -c 65e48cbb975096198c5402edd05656d4b39e05f7 -delete 1.x ./release/
+        command: |
+          VERSION=$(mvn -o org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version | grep -v '\[')
+          ./ghr_v0.12.0_linux_amd64/ghr -t ${GIT_PERSONAL_TOKEN} -u hjchanna -r samba-poke -c ${CIRCLE_SHA1} -delete ${VERSION} ./release/
 
     - save_cache:
         paths:
         - ~/.m2
         key: v1-dependencies-{{ checksum "pom.xml" }}
-
-    # run tests!
