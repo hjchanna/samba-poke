@@ -39,7 +39,7 @@ jobs:
         command: |
           wget -c https://github.com/tcnksm/ghr/releases/download/v0.12.0/ghr_v0.12.0_linux_amd64.tar.gz
           tar -xvzf ghr_v0.12.0_linux_amd64.tar.gz
-          mv ghr bin
+          mv ghr_v0.12.0_linux_amd64/ghr /bin
 
     - run:
         name: Release to Github
