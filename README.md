@@ -1,5 +1,7 @@
 # Samba-Poke
-Samba poke is used to test samba connections *(smb://)* with Java. It will connect to a samba host which has passed as runtime arguments by using samba domain and credentials which are passed through same runtime arguments. Basic useage of samba-poke as follows. 
+[![CircleCI](https://circleci.com/gh/hjchanna/samba-poke.svg?style=shield)](https://circleci.com/gh/hjchanna/samba-poke)
+![Release](https://img.shields.io/github/release/hjchanna/samba-poke.svg?style=flat)
+>Samba poke is used to test samba connections *(smb://)* with Java. It will connect to a samba host which has passed as runtime arguments by using samba domain and credentials which are passed through same runtime arguments. Basic useage of samba-poke as follows. 
 
 ````
 # download samba-poke
